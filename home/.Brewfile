@@ -1,5 +1,5 @@
 # Install cask apps to /Applications
-cask_args appdir: '/Applications'
+cask_args appdir: "/Applications"
 
 # install packages
 tap "heroku/brew"
@@ -44,22 +44,37 @@ brew "zsh-autosuggestions"
 
 
 # Casks
-cask '1password'
-cask 'alfred'
-cask 'dropbox'
-cask 'google-chrome'
-cask 'iterm2'
-cask 'java'
-cask 'kindle'
-cask 'skype'
-cask 'slack'
-cask 'virtualbox'
+cask "1password"
+cask "alfred"
+cask "amazon-music"
+cask "android-studio"
+cask "beyond-compare"
+cask "cloudapp"
+cask "daisydisk"
+# Docker for Mac
+cask "docker"
+cask "dropbox"
+cask "fastscripts"
+cask "firefox"
+cask "google-chrome"
+cask "google-photos-backup-and-sync"
+cask "iterm2"
+cask "java"
+cask "kindle"
 cask "licecap"
 cask "muzzle"
 cask "ngrok"
+cask "pgadmin4"
 cask "qbserve"
 cask "quitter"
+cask "selfcontrol"
+cask "skype"
+cask "slack"
+cask "steam"
+cask "the-unarchiver"
+cask "tower"
 cask "transmission"
+cask "vagrant"
 cask "virtualbox"
 cask "viscosity"
 cask "visual-studio-code"
