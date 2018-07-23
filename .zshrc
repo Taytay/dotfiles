@@ -54,7 +54,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/bin"
+# I had added the following on my 2013 Macbook Pro. Will only add back as necesary.
+#export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
@@ -69,3 +70,19 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/bin"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+# Homebrew:
+export PATH="/usr/local/bin:$PATH"
+# Now setting to 1.8 for Minecraft forge
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_111`
+eval "$(rbenv init -)"
+ulimit -n 4096
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+export YNAB_EVERGREEN_PATH=~/projects/YNAB/evergreen_project/evergreen
+export YNAB_ANDROID_PATH=~/projects/YNAB/evergreen_project/ynab_android
+export YNAB_IOS_PATH=~/projects/YNAB/evergreen_project/ynab_ios
+export YNAB_GITHUB_USER=taytay@taytay.com
+export YNAB_GITHUB_API_TOKEN=TO_BE_FILLED_IN
+export PATH=$PATH:~/Library/Android/sdk/platform-tools/
+
+
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh

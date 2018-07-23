@@ -32,7 +32,25 @@
 	# Find commits by commit message
 	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
 	# Remove branches that have already been merged with master
-	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+	dmd = "!f() { git checkout --quiet develop && git branch --merged | grep --invert-match '\\*' | xargs -n 1 git branch --delete; git checkout --quiet @{-1}; }; f"
+  #dm = "!git branch --merged | grep -v '\\*' | grep -v master | grep -v develop | xargs -n 1 git branch -d"
+  # Delete local tracking branches that no longer have a remote:
+  # TB: I can't get this working right now :(
+  # prune-local = "!git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 < (git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
+  # To prune, do this:
+  # git remote prune origin
+  # And then:
+  # git branch -vv | grep ' gone]' | egrep -v '^\*' | cut -f 3 -d ' ' | xargs git branch -D
+  prune-local = "!git remote prune origin && git branch -vv | grep ' gone]' | egrep -v '^\\*' | cut -f 3 -d ' ' | xargs git branch -D"
+
+  # Ignore a file that is already being tracked. (Warning, this will be lost if you git stash)
+  ignore-tracked = "!git update-index --assume-unchanged $1"
+  # Re-track an ignored file
+  track-ignored = "!git update-index --no-assume-unchanged $1"
+  # List the ignored files
+  ls-ignored = "!git ls-files -v|grep '^h'"
+
+
 
 [apply]
 	# Detect whitespace errors when applying a patch
@@ -50,6 +68,7 @@
 	# Make `git rebase` safer on OS X
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 	trustctime = false
+	editor = subl -n -w
 
 [color]
 	# Use colors in Git commands that are capable of colored output when
@@ -87,4 +106,19 @@
 	insteadOf = "gist:"
 
 [push]
-	default = matching
+	default = simple
+[user]
+	name = Taylor Brown
+	email = taylor@youneedabudget.com
+[difftool "BeyondCompare"]
+	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE
+	path = 
+[mergetool "BeyondCompare"]
+	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE $BASE $MERGED
+	trustExitCode = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[commit]
+	template = /Users/taylorbrown/.stCommitMsg

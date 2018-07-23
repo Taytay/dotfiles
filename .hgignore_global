@@ -1,0 +1,15 @@
+syntax: glob
+
+*~
+.DS_Store
+*.orig
+*.rej
+workspace.xml
+test.d.ts
+node_modules
+scope_settings.xml
+1.bundle.js.annotated
+*.orig
+npm-debug.log
+.idea
+evergreen_release
