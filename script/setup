@@ -11,12 +11,18 @@ TARGET_FOLDER="~"
 function installFiles() {
 	rsync --exclude ".DS_Store" -av --no-perms ./home/ "$TARGET_FOLDER"
 	
-	# Copy VS Code Settings file
+	# VS Code Settings file
 	VSCODE_SETTINGS_FOLDER="$HOME/Library/Application Support/Code/User"
 	mkdir -p "$VSCODE_SETTINGS_FOLDER"
 	# Only copy settings if it's not already there
 	[ -f "$VSCODE_SETTINGS_FOLDER/settings.json" ] || cp -v "./other_settings/vscode/settings.json" "$VSCODE_SETTINGS_FOLDER/"
-	
+
+
+	# FastScripts scripts
+	FASTSCRIPTS_FOLDER="$HOME/Library/Scripts"
+	mkdir -p "$FASTSCRIPTS_FOLDER"
+	[ -f "$FASTSCRIPTS_FOLDER/TypeClipboard.scpt" ] || cp -v "./other_settings/fastscripts/TypeClipboard.scpt" "$FASTSCRIPTS_FOLDER/"
+
 	source ~/.bash_profile
 }
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
