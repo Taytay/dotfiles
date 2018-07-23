@@ -1,4 +1,4 @@
-# specify a directory to install
+# Install cask apps to /Applications
 cask_args appdir: '/Applications'
 
 # install packages
@@ -24,6 +24,7 @@ brew "hub"
 brew "imagemagick"
 brew "jq"
 brew "jsonlint"
+# So that we can install Mac App Store apps (some of which are below)
 brew "mas"
 brew "mercurial"
 brew "neovim"
@@ -65,6 +66,7 @@ cask "visual-studio-code"
 cask "vmware-fusion"
 cask "zoomus"
 
+# Mac App Store
 mas "Clocks", id: 414554506
 mas "Dash", id: 458034879
 mas "iMovie", id: 408981434
