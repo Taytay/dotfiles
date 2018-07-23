@@ -1,0 +1,17 @@
+{
+  // Place your settings in this file to overwrite the default settings
+  "typescript.referencesCodeLens.enabled": false,
+  "editor.detectIndentation": true,
+  "editor.formatOnSave": true,
+  "window.zoomLevel": 0,
+  "files.associations": {
+    "Vagrantfile": "ruby"
+  },
+  "search.exclude": {
+    "**/node_modules": false
+  },
+  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.iconTheme": "vs-seti",
+  "tslint.enable": true,
+  "java.errors.incompleteClasspath.severity": "ignore"
+}

@@ -84,5 +84,7 @@ export YNAB_GITHUB_USER=taytay@taytay.com
 export YNAB_GITHUB_API_TOKEN=TO_BE_FILLED_IN
 export PATH=$PATH:~/Library/Android/sdk/platform-tools/
 
+# Add Visual Studio Code (code)
+export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
