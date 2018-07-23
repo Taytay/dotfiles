@@ -6,6 +6,7 @@ tap "heroku/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
+tap "homebrew/cask-drivers"
 tap "homebrew/core"
 tap "homebrew/services"
 
@@ -40,6 +41,7 @@ brew "tree"
 brew "wget"
 brew "xz"
 brew "yarn"
+brew "zsh"
 brew "zsh-autosuggestions"
 
 
@@ -59,6 +61,7 @@ cask "firefox"
 cask "google-chrome"
 cask "google-photos-backup-and-sync"
 cask "iterm2"
+cask "java8"
 cask "kindle"
 cask "licecap"
 cask "muzzle"
@@ -70,9 +73,11 @@ cask "selfcontrol"
 cask "skype"
 cask "slack"
 cask "steam"
+cask "textexpander"
 cask "the-unarchiver"
 cask "tower"
 cask "transmission"
+cask "ubiquiti-unifi-controller"
 cask "vagrant"
 cask "virtualbox"
 cask "viscosity"
@@ -92,6 +97,5 @@ mas "Microsoft Remote Desktop", id: 715768417
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "PhotoSweeper", id: 463362050
-mas "QuickCast", id: 710575188
 mas "Silent Sifter", id: 540196459
 mas "Xcode", id: 497799835
