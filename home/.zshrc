@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=/Users/taylorbrown/.oh-my-zsh
+ZSH=${HOME}/.oh-my-zsh
 
 # For Solarized
 export TERM="xterm-256color"
@@ -72,8 +72,8 @@ source $ZSH/oh-my-zsh.sh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 # Homebrew:
 export PATH="/usr/local/bin:$PATH"
-# Now setting to 1.8 for Minecraft forge
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_111`
+# To set the Java version to something other than the default
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_111`
 eval "$(rbenv init -)"
 ulimit -n 4096
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -85,6 +85,6 @@ export YNAB_GITHUB_API_TOKEN=TO_BE_FILLED_IN
 export PATH=$PATH:~/Library/Android/sdk/platform-tools/
 
 # Add Visual Studio Code (code)
-export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
