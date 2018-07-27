@@ -87,7 +87,6 @@ cask "zoomus"
 
 # Mac App Store
 mas "Clocks", id: 414554506
-mas "Dash", id: 458034879
 mas "iMovie", id: 408981434
 mas "iPhoto", id: 408981381
 mas "Keynote", id: 409183694
