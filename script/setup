@@ -8,7 +8,8 @@ cd $THISDIR/..
 DOTFILESDIR=$(pwd -P)
 
 function installFiles() {
-	rsync --exclude ".DS_Store" -av --no-perms ./home/ ~
+	# --update means: Don't overwrite any files that are newer in the target folder than the source folder
+	rsync --exclude ".DS_Store" -av --update --no-perms ./home/ ~
 	
 	# VS Code Settings file
 	VSCODE_SETTINGS_FOLDER="$HOME/Library/Application Support/Code/User"
@@ -16,28 +17,28 @@ function installFiles() {
 	# Only copy settings if it's not already there
 	[ -f "$VSCODE_SETTINGS_FOLDER/settings.json" ] || cp -v "./other_settings/vscode/settings.json" "$VSCODE_SETTINGS_FOLDER/"
 
-
 	# FastScripts scripts
 	FASTSCRIPTS_FOLDER="$HOME/Library/Scripts"
 	mkdir -p "$FASTSCRIPTS_FOLDER"
 	[ -f "$FASTSCRIPTS_FOLDER/TypeClipboard.scpt" ] || cp -v "./other_settings/fastscripts/TypeClipboard.scpt" "$FASTSCRIPTS_FOLDER/"
-
 }
 
-installFiles
+./script/bootstrap
 
 # So that we can refer to $1 without an error
-#set +u
-#if [ "$1" == "--force" -o "$1" == "-f" ]; then
-#	installFiles
-#else
-#	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
-#	echo
-#	if [[ $REPLY =~ ^[Yy]$ ]]; then
-#		installFiles
-#	fi
-#fi
+set +u
+if [ "$1" == "--force" -o "$1" == "-f" ]; then
+	installFiles
+else
+	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+		installFiles
+	fi
+fi
+
 unset installFiles
 
-
+echo "Setting Mac preferences..."
+./set-mac-prefs.sh
 
